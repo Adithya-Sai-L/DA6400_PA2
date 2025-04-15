@@ -1,0 +1,32 @@
+layers, 
+activations, ['ReLU', 'tanh', 'sigmoid']
+batch_norm,
+drop_out
+
+optimizer,
+learning_rate,
+
+
+
+
+
+layers,         [128, 64, 32]
+activations,
+batch_norm,
+drop_out
+
+optimizer,
+learning_rate,
+double_qlearn
+
+
+
+6, 128
+128, 64
+
+64 32
+64 32
+
+32 * act_dim
+32 * 1
+

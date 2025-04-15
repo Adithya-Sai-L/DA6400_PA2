@@ -172,13 +172,13 @@ class DuelingDQNAgent:
         if random.random() < self.epsilon:
             return random.randrange(self.action_size)
         
+        self.policy_net.eval()
         with torch.no_grad():
             state = torch.FloatTensor(state).unsqueeze(0).to(self.device)
-            print(state.shape)
             q_values = self.policy_net(state)
-            print(q_values.shape)
             return q_values.max(1)[1].item()
-    
+        self.policy_net.train()
+
     def update_epsilon(self):
         self.epsilon = max(self.epsilon_end, self.epsilon * self.epsilon_decay)
     
